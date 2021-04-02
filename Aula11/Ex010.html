@@ -8,21 +8,24 @@
     <title>DETRAN</title>
     <style>
         body {
-            background: rgb(235, 235, 235);            
+            background: rgb(235, 235, 235);
         }
+        
         body div {
             font-size: 14pt;
         }
+        
         #txtvel {
             width: 50px;
             background: rgb(245, 245, 245);
         }
+        
         #verif {
             position: relative;
             margin-left: 20px;
             background: lightgrey;
             font-weight: bold;
-            height: 35px;            
+            height: 35px;
         }
     </style>
 </head>
@@ -32,9 +35,23 @@
     <div>
         Velocidade do carro:
         <input type="number" name="txtvel" id="txtvel">Km/h
-        <input id="verif" type="button" value="Veriricar">
+        <input id="verif" type="button" value="Veriricar" onclick="calcular()">
+        <div id="res">
+        </div>
     </div>
-    
+    <script>
+        var txtv = window.document.getElementById('txtvel')
+        var res = window.document.getElementById('res')
+
+        function calcular() {
+            var vel = Number(txtv.value)
+            res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel}Km/h</strong></p>`
+            if (vel > 60) {
+                res.innerHTML += `<p>Você está <strong>multado</strong> por excesso de velocidade!</p>`
+            }
+            res.innerHTML += `<p>Dirija sempre com sinto de segurança!</p>`
+        }
+    </script>
 </body>
 
 </html>
