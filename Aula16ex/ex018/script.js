@@ -38,7 +38,26 @@ function finalizar() {
         window.alert('Adicione valores, antes de finalizar!')
      } else {
         let tot = valores.length
+        let maior = valores[0]
+        let menor = valores[0]
+        let soma = 0
+        let media = 0
+        for(let pos in valores) {
+            soma += valores[pos]
+            media = soma / tot
+            if (valores[pos] > maior) {
+                maior = valores[pos]
+            }
+            if (valores[pos] < menor) {
+                menor = valores[pos]
+            }
+        }
+
         eRes.innerHTML = ''
         eRes.innerHTML += `<p>Ao todo, temos ${tot} números cadastrados.</p>`
+        eRes.innerHTML += `<p>O maior valor informado foi ${maior}.</p>`
+        eRes.innerHTML += `<p>O menor valor informado foi ${menor}.</p>`
+        eRes.innerHTML += `<p>A soma dos números adicionados é ${soma}.</p>`
+        eRes.innerHTML += `<p>A média dos números adicionados é ${media}.</p>`
      }
 }
